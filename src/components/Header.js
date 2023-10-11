@@ -40,6 +40,14 @@ const Header = () => {
         >
           About
         </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active font-bold text-black" : "text-rose-500"
+          }
+        >
+          Contact Us
+        </NavLink>
         <button
           className="bg-rose-200 text-rose-500 px-4 py-2 rounded hover:bg-rose-500 hover:text-rose-200"
           onClick={toggleCart}
