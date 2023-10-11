@@ -1,7 +1,7 @@
 import React from "react";
 import { albumProducts, merchandiseProducts } from "../constants";
 import { useCart } from "../store/cartContext";
-
+import { Link } from "react-router-dom";
 const Store = () => {
   const { addItemToCart } = useCart();
   return (
@@ -25,8 +25,9 @@ const Store = () => {
                 {product.name}
               </h2>
               <p className="text-gray-600"> ₹{product.price}</p>
+              <Link to={`/store/album/${product.id}`} className="text-rose-500 hover:underline mx-3">View Details</Link>
               <button
-                className="bg-rose-500 text-white px-4 py-2 rounded mt-2 hover:bg-rose-600"
+                className="bg-rose-500 text-white px-4 py-1 rounded mt-2 hover:bg-rose-600"
                 onClick={() => {
                   addItemToCart(product);
                 }}
@@ -55,6 +56,7 @@ const Store = () => {
                 {product.name}
               </h2>
               <p className="text-gray-600">₹{product.price}</p>
+              <Link to={`/store/merchandise/${product.id}`} className="text-rose-500 hover:underline mx-3">View Details</Link>
               <button
                 className="bg-rose-500 text-white px-4 py-2 rounded mt-2 hover:bg-rose-600"
                 onClick={() => {
