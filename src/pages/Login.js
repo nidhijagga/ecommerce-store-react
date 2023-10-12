@@ -40,7 +40,6 @@ const Login = () => {
       .then((data) => {
         loginContext.isLoggedIn = true;
         loginContext.login(data.idToken);
-        console.log(loginContext);
         navigate("/store");
       })
       .catch((error) => {

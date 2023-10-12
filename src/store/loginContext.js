@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const LoginContext = React.createContext({
+  token: "",
   isLoggedIn: false,
   login: (token) => {},
   logout: () => {},
 });
 
-
 export const LoginContextProvider = (props) => {
-  const initialToken = localStorage.getItem('token');
+  const initialToken = localStorage.getItem("token");
 
   const [token, setToken] = useState(initialToken);
 
@@ -16,19 +16,20 @@ export const LoginContextProvider = (props) => {
 
   const loginHandler = (token) => {
     setToken(token);
-    localStorage.setItem('token', token);
+    localStorage.setItem("token", token);
   };
 
   const logoutHandler = () => {
     setToken(null);
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
   };
 
-//   if (token) {
-//     setTimeout(logoutHandler, 5000);
-//   }
+  //   if (token) {
+  //     setTimeout(logoutHandler, 5000);
+  //   }
 
   const contextValue = {
+    token : token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
